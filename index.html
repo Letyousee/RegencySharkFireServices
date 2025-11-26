@@ -100,6 +100,58 @@
             background: #b91c1c;
         }
 
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 12px;
+            z-index: 1000;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown-content button {
+            background: white;
+            color: #1e3a8a;
+            padding: 14px 20px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            border-radius: 0;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .dropdown-content button:hover {
+            background: #f0f4ff;
+            color: #dc2626;
+            transform: translateX(5px);
+            box-shadow: none;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown > button::after {
+            content: " ▼";
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
         /* Main Content Placeholder */
         .content {
             min-height: 400px;
@@ -112,6 +164,113 @@
             color: #1e3a8a;
             font-size: 36px;
             margin-bottom: 20px;
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            padding: 80px 40px;
+        }
+
+        .contact-form-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-form-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-form-header h2 {
+            color: #1e3a8a;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .contact-form-header p {
+            color: #475569;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            color: #1e3a8a;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #1e3a8a;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
         }
 
         /* Footer Styles */
@@ -341,7 +500,6 @@
 
         @media (max-width: 768px) {
             .header-top {
-                flex-direction: column;
                 text-align: center;
             }
 
@@ -356,6 +514,18 @@
 
             .logo-section h2 {
                 font-size: 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .contact-form-header h2 {
+                font-size: 32px;
             }
 
             .footer-main {
@@ -381,8 +551,22 @@
                     <div class="phone">(800) 266-6549</div>
                 </div>
                 <nav class="nav-menu">
-                    <button onclick="location.href='#services'">Services</button>
-                    <button onclick="location.href='#service-area'">Service Area</button>
+                    <div class="dropdown">
+                        <button>Services</button>
+                        <div class="dropdown-content">
+                            <button onclick="location.href='#fire-suppression'">Fire Suppression</button>
+                            <button onclick="location.href='#fire-extinguishers'">Fire Extinguishers</button>
+                            <button onclick="location.href='#hood-cleaning'">Hood Cleaning Services</button>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button>Service Area</button>
+                        <div class="dropdown-content">
+                            <button onclick="location.href='#location1'">Location 1</button>
+                            <button onclick="location.href='#location2'">Location 2</button>
+                            <button onclick="location.href='#location3'">Location 3</button>
+                        </div>
+                    </div>
                     <button onclick="location.href='#blog'">Blog</button>
                     <button onclick="location.href='#contact'">Contact US</button>
                     <button onclick="location.href='#about'">About Us</button>
@@ -397,6 +581,65 @@
         <h2>Professional Fire Protection Services in Los Angeles</h2>
         <p>Your content goes here...</p>
     </div>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" id="contact">
+        <div class="contact-form-container">
+            <div class="contact-form-header">
+                <h2>Get In Touch</h2>
+                <p>Have questions about our fire protection services? Fill out the form below and our team will get back to you within 24 hours.</p>
+            </div>
+            
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your inquiry! We will contact you soon.');">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service...</option>
+                            <option value="kitchen-suppression">Kitchen Fire Suppression</option>
+                            <option value="fire-extinguishers">Fire Extinguishers</option>
+                            <option value="dry-chemical">Dry Chemical Systems</option>
+                            <option value="hood-cleaning">Hood Cleaning</option>
+                            <option value="installation">Installation & Repair</option>
+                            <option value="maintenance">Maintenance Services</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your fire protection needs..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
 
     <!-- Footer Section -->
     <footer>
@@ -467,8 +710,6 @@
                     </div>
                 </div>
             </div>
-
-
 
             <!-- Footer Bottom -->
             <div class="footer-bottom">
