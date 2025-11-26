@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regency Shark Fire Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header Styles - Keeping as provided */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+        }
+
+        .header-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-section {
+            margin-bottom: 25px;
+        }
+
+        .logo-section h1 {
+            color: #1e3a8a;
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .logo-section h2 {
+            color: #dc2626;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .logo-section .phone {
+            color: #dc2626;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-top: 5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-menu button {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu button:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+        }
+
+        .nav-menu .call-now {
+            background: #dc2626;
+        }
+
+        .nav-menu .call-now:hover {
+            background: #b91c1c;
+        }
+
+        /* Main Content Placeholder */
+        .content {
+            min-height: 400px;
+            padding: 60px 40px;
+            background: #f8fafc;
+            text-align: center;
+        }
+
+        .content h2 {
+            color: #1e3a8a;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+            padding-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1.5fr 2fr;
+            gap: 40px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .footer-about {
+            padding-right: 20px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo h2 {
+            color: white;
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .footer-logo h3 {
+            color: #dc2626;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .license-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        .footer-links a:hover {
+            color: #dc2626;
+            transform: translateX(5px);
+        }
+
+        .footer-links a::before {
+            content: "▸ ";
+            margin-right: 8px;
+            color: #dc2626;
+        }
+
+        .footer-contact {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .contact-icon {
+            background: #dc2626;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+
+        .contact-details h4 {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+        }
+
+        .contact-details p, .contact-details a {
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact-details a:hover {
+            color: #dc2626;
+        }
+
+        .brands-section {
+            padding: 30px 0;
+        }
+
+        .brands-section h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .brands-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .brand-item {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            color: #1e3a8a;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .brand-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-bottom {
+            padding: 25px 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .social-icon:hover {
+            background: #dc2626;
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .logo-section h1 {
+                font-size: 36px;
+            }
+
+            .logo-section h2 {
+                font-size: 24px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section - As Provided -->
+    <header>
+        <div class="header-container">
+            <div class="header-top">
+                <div class="logo-section">
+                    <h1>REGENCY</h1>
+                    <h2>SHARK FIRE SERVICES</h2>
+                    <div class="phone">(800) 266-6549</div>
+                </div>
+                <nav class="nav-menu">
+                    <button onclick="location.href='#services'">Services</button>
+                    <button onclick="location.href='#service-area'">Service Area</button>
+                    <button onclick="location.href='#blog'">Blog</button>
+                    <button onclick="location.href='#contact'">Contact US</button>
+                    <button onclick="location.href='#about'">About Us</button>
+                    <button class="call-now" onclick="location.href='tel:8002666549'">Call Now</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Placeholder -->
+    <div class="content">
+        <h2>Professional Fire Protection Services in Los Angeles</h2>
+        <p>Your content goes here...</p>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-main">
+                <!-- About Column -->
+                <div class="footer-column footer-about">
+                    <div class="footer-logo">
+                        <h2>REGENCY</h2>
+                        <h3>SHARK FIRE SERVICES</h3>
+                    </div>
+                    <p>Regency Shark Fire Services is a full-service Los Angeles fire protection company, providing comprehensive Fire Suppression and Fire Extinguishing services. We strive to deliver the best customer service in the industry.</p>
+                    <p>Our expertise, knowledge, and reputation keep our customers coming back for all their fire protection needs.</p>
+                    <div class="license-info">
+                        CL Fire Protection #C16-918802
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-column footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#service-area">Service Area</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Column -->
+                <div class="footer-column footer-links">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#kitchen-suppression">Kitchen Fire Suppression</a></li>
+                        <li><a href="#fire-extinguishers">Fire Extinguishers</a></li>
+                        <li><a href="#dry-chemical">Dry Chemical Systems</a></li>
+                        <li><a href="#hood-cleaning">Hood Cleaning</a></li>
+                        <li><a href="#installation">Installation & Repair</a></li>
+                        <li><a href="#maintenance">Maintenance Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="footer-column footer-contact">
+                    <h3>Contact Us</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>16147 Valerio Street<br>Van Nuys, CA 91406</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <a href="tel:8002666549">(800) 266-6549</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:office@regencyfireservices.com">office@regencyfireservices.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        © 2024 Regency Shark Fire Services. All Rights Reserved.
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">f</a>
+                        <a href="#" class="social-icon" aria-label="Twitter">𝕏</a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
